@@ -1,0 +1,26 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 41" width="68" height="41">
+	<title>Icons</title>
+	<defs>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="28.5" y1="10.8" x2="46.8" y2="-7.5">
+			<stop offset="0" stop-color="#ffb43a"  />
+			<stop offset="1" stop-color="#ffca3f"  />
+		</linearGradient>
+		<linearGradient id="grd2" gradientUnits="userSpaceOnUse"  x1="26.7" y1="30.1" x2="47.1" y2="9.8">
+			<stop offset="0" stop-color="#d0effa"  />
+			<stop offset="1" stop-color="#e2f3fb"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.s0 { fill: url(#grd1) } 
+		.s1 { fill: #ffffff } 
+		.s2 { fill: url(#grd2) } 
+	</style>
+	<g id="Icons">
+		<g id="-e-Party Cloudy">
+			<path id="&lt;Path&gt;" class="s0" d="m62.12 13.1c0 7.16-5.8 12.96-12.96 12.96c-7.16 0-12.96-5.8-12.96-12.96c0-7.16 5.8-12.96 12.96-12.96c7.16 0 12.96 5.8 12.96 12.96z" />
+			<path id="&lt;Path&gt;" class="s1" d="m14.03 40.39c-7.29 0-13.2-5.91-13.2-13.2c0-7.29 5.91-13.2 13.2-13.2c0.08 0 0.17 0 0.25 0.01c2.66-5.92 8.61-10.05 15.53-10.05c8.76 0 15.97 6.61 16.91 15.12c0.04 0 0.07-0.01 0.11-0.01c5.89 0 10.66 4.77 10.66 10.66c0 5.89-4.77 10.66-10.66 10.66" />
+			<path id="&lt;Path&gt;" class="s2" d="m40.45 40.39c-4.58 0-8.29-3.71-8.29-8.29c0-4.58 3.71-8.29 8.29-8.29c0.05 0 0.11 0 0.16 0c1.67-3.72 5.41-6.31 9.75-6.31c5.5 0 10.03 4.15 10.62 9.49c0.02 0 0.05 0 0.07 0c3.7 0 6.7 3 6.7 6.7c0 3.7-3 6.7-6.7 6.7" />
+		</g>
+	</g>
+</svg>
