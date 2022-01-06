@@ -6,7 +6,14 @@ module.exports = {
     container:{
       center: true,
     },
-    extend: {},
+    extend: {
+      width: {
+        card: '612px'
+      },
+      height: {
+        card: '304px'
+      }
+    },
   },
   plugins: [],
 }

@@ -10,7 +10,7 @@ export const getWeather = createAsyncThunk(
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${location.q}&appid=98ea538d118721f5330fce1c4de1a6fb&units=metric`
     )
-    console.log(response.data)
+    //console.log(response.data)
     return response.data;
   }
 );  

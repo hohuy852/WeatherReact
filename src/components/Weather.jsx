@@ -67,7 +67,7 @@ const Weather = () => {
                             </div>
                             <div>
                                 {weatherData.main.humidity}%
-                            </div>
+                            </d
                         </div>
                         <div className='flex flex-col w-full items-center'>
                             <div>

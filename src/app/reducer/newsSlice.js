@@ -9,14 +9,14 @@ export const getNews = createAsyncThunk("getNews/newsFetched", async () => {
   const response = await axios.get(
     "https://newsapi.org/v2/top-headlines?country=us&apiKey=60adc178fb614400a4fd9d2552def664"
   );
-  console.log(response.data.articles);
+  //console.log(response.data.articles);
   return response.data;
 });
 const newsSlice = createSlice({
   name: "news",
   initialState: {
     news: [],
-    isLoading: false,
+    isLoading: true,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -35,10 +35,20 @@ const newsSlice = createSlice({
 });
 const newsReducer = newsSlice.reducer;
 
-const selectNews = (state) => state.newsReducer.news;
+export const selectNews = (state) => state.newsReducer.news;
+const loadingState = (state) => state.newsReducer.isLoading
+export const newsSelector = createSelector([selectNews, loadingState], (news, loadingState) => {
+  console.log(loadingState)
+  if(loadingState === false){
+    var temp = Object.values(news);
+    var temp2 = temp.shift();
+    console.log(temp2);
+    return temp2;
+  }
+});
 
-export const newsSelector = createSelector(selectNews, (news) =>
-  Object.values(news)
-);
+export const firstNews = createSelector(newsSelector, (news) => {
+  news.shift();
+});
 
 export default newsReducer;
