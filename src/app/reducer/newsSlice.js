@@ -37,18 +37,18 @@ const newsReducer = newsSlice.reducer;
 
 export const selectNews = (state) => state.newsReducer.news;
 const loadingState = (state) => state.newsReducer.isLoading
-export const newsSelector = createSelector([selectNews, loadingState], (news, loadingState) => {
-  console.log(loadingState)
-  if(loadingState === false){
-    var temp = Object.values(news);
-    var temp2 = temp.shift();
-    console.log(temp2);
-    return temp2;
-  }
+export const newsSelector = createSelector(selectNews, (news) => {
+  return  Object.values(news)
 });
 
-export const firstNews = createSelector(newsSelector, (news) => {
-  news.shift();
+export const firstNews = createSelector([newsSelector, loadingState], (news, loadingState) => {
+  //console.log(loadingState)
+  if(loadingState === false){
+    // console.log(news)
+    var hotnews = news.shift();
+    console.log(hotnews);
+    return hotnews;
+  }
 });
 
 export default newsReducer;

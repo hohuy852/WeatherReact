@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { newsSelector, firstNews, selectNews } from '../app/reducer/newsSlice'
 import { getNews } from '../app/reducer/newsSlice'
 const News = () => {
-    const news = useSelector(selectNews)
-    const hightLightNews = useSelector(newsSelector)
+    const news = useSelector(newsSelector)
+    const hightLightNews = useSelector(firstNews)
     const newsLoading = useSelector((state) => state.newsReducer.isLoading)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -25,7 +25,7 @@ const News = () => {
                 <div className='col-span-2 w-full h-card bg-slate-500 rounded-xl shadow-lg' style={{ backgroundImage: `url(${hightLightNews.urlToImage})` }} key={hightLightNews.title}>
                     <a href={hightLightNews.url} className='w-full flex flex-col justify-end h-full' rel="noreferrer" target='_blank'>
                         <div className='flex flex-col pl-4 pb-6'>
-                            <div>{hightLightNews.author}</div>
+                            <div>{hightLightNews.source.name}</div>
                             <div>{hightLightNews.title}</div>
                         </div>
                     </a>

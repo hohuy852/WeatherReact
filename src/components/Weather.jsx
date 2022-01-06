@@ -20,6 +20,7 @@ const Weather = () => {
     }
     return (
         <div className='flex flex-col gap-y-3'>
+            <div className='font-medium'>WEATHER</div>
             <div className='grid grid-cols-4'>
                 <div className='col-span-2 pl-4 pb-4 rounded-xl bg-teal-900 w-full text-white flex flex-col gap-y-3'>
                     <div className='uppercase font-semibold pt-4'>
@@ -67,7 +68,7 @@ const Weather = () => {
                             </div>
                             <div>
                                 {weatherData.main.humidity}%
-                            </d
+                            </div>
                         </div>
                         <div className='flex flex-col w-full items-center'>
                             <div>
