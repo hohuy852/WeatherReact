@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { newsSelector, firstNews, selectNews } from '../app/reducer/newsSlice'
+import { newsSelector, firstNews } from '../app/reducer/newsSlice'
 import { getNews } from '../app/reducer/newsSlice'
 const News = () => {
     const news = useSelector(newsSelector)

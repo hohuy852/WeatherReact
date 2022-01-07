@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import Chart from "react-apexcharts";
 const WeatherChart = () => {
-    function generateDayWiseTimeSeries(baseval, count, yrange) {
-        var i = 0;
-        var series = [];
-        while (i < count) {
-            var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+    // function generateDayWiseTimeSeries(baseval, count, yrange) {
+    //     var i = 0;
+    //     var series = [];
+    //     while (i < count) {
+    //         var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
 
-            series.push([baseval, y]);
-            baseval += 86400000;
-            i++;
-        }
-        return series;
-    }
+    //         series.push([baseval, y]);
+    //         baseval += 86400000;
+    //         i++;
+    //     }
+    //     return series;
+    // }
     const [chart, setChart] = useState({
         options: {
             chart: {
