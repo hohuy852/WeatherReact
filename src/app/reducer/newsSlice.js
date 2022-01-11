@@ -46,7 +46,7 @@ export const firstNews = createSelector([newsSelector, loadingState], (news, loa
   if(loadingState === false){
     // console.log(news)
     var hotnews = news.shift();
-    console.log(hotnews);
+  //  console.log(hotnews);
     return hotnews;
   }
 });

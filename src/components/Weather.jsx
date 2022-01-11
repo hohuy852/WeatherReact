@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
 import { getWeather, weatherSelector } from '../app/reducer/weatherSlice'
 import Forecast from './Forecast'
 const Weather = () => {
@@ -7,6 +7,7 @@ const Weather = () => {
     const isLoadingStatus = useSelector((state) => state.weatherReducer.isLoading)
     const weatherData = useSelector(weatherSelector)
     const locationData = useSelector(state => state.weatherReducer.data)
+    const [tempData, setTempData] = useState()
     useEffect(() => {
         // const getPosition = (location) => {
         //     locationData.lon = location.coords.latitude

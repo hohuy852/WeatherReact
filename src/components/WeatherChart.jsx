@@ -1,21 +1,34 @@
-import React, {  useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Chart from "react-apexcharts";
-const WeatherChart = () => {
-    // function generateDayWiseTimeSeries(baseval, count, yrange) {
-    //     var i = 0;
-    //     var series = [];
-    //     while (i < count) {
-    //         var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+import { tempSelector } from '../app/reducer/weatherSlice';
+import { useSelector } from 'react-redux';
 
-    //         series.push([baseval, y]);
-    //         baseval += 86400000;
-    //         i++;
-    //     }
-    //     return series;
-    // }
-    const [chart, setChart] = useState({
-        options: {
+const WeatherChart = () => {
+    const tempArr = useSelector(tempSelector)
+    //    useEffect(()=>{
+    //         console.log(tempArr)
+    //    },[tempArr])
+    const [series, setSeries] = useState([
+        {
+            name: "Day",
+            data: [0, 0, 0, 0, 0]
+        },
+        {
+            name: "Morning",
+            data: [0, 0, 0, 0, 0]
+        },
+        {
+            name: "Evening",
+            data: [0, 0, 0, 0, 0]
+        },
+        {
+            name: "Night",
+            data: [0, 0, 0, 0, 0]
+        },
+    ])
+    const [options, setOptions] = useState({
             chart: {
+                id: 'tempChart',
                 height: 350,
                 type: 'line',
                 dropShadow: {
@@ -30,7 +43,7 @@ const WeatherChart = () => {
                     show: false
                 }
             },
-            colors: ['#53618c', '#2f3c66','#1e2a52'],
+            colors: ['#53618c', '#2f3c66', '#1e2a52'],
             dataLabels: {
                 enabled: true,
             },
@@ -50,7 +63,7 @@ const WeatherChart = () => {
                 fillSeriesColor: false,
                 theme: 'dark',
                 style: {
-                  fontSize: '12px',
+                    fontSize: '12px',
                 },
                 onDatasetHover: {
                     highlightDataSeries: false,
@@ -70,7 +83,7 @@ const WeatherChart = () => {
                 //     show: true,
                 // },
                 items: {
-                   display: 'flex',
+                    display: 'flex',
                 },
                 fixed: {
                     enabled: false,
@@ -85,11 +98,12 @@ const WeatherChart = () => {
             },
             grid: {
                 show: false,
-                borderColor: '#e7e7e7',
+                // borderColor: '#e7e7e7',
+                // strokeDashArray: 0,
                 position: 'back',
                 // row: {
-                //     colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                //     opacity: 0.5
+                //     colors: ['#000', 'transparent'], // takes an array which will be repeated on columns
+                //     opacity: 0.2
                 // },
             },
             markers: {
@@ -102,13 +116,14 @@ const WeatherChart = () => {
                 }
             },
             yaxis: {
-                label:{
+                label: {
                     show: false
                 },
                 categories: [],
                 title: {
                     text: ''
                 },
+                tickAmount: 1,
                 min: -50,
                 max: 100
             },
@@ -120,24 +135,13 @@ const WeatherChart = () => {
                 offsetX: -5
             }
         },
-        series: [{
-            name: "Morning",
-            data: [28, 29, 33, 36, 32, 32, 33]
-        },
-        {
-            name: "Evening",
-            data: [12, 11, 14, 18, 17, 13, 13]
-        },
-        {
-            name: "Night",
-            data: [10, 4, 6, 12, 13, 9, 8]
-        }],
-    })
+
+    )
     return (
         <div className='w-full bg-red-100'>
             <Chart
-                options={chart.options}
-                series={chart.series}
+                options={options}
+                series={series}
                 type="line"
                 width="100%"
                 height="350px"

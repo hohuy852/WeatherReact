@@ -22,7 +22,7 @@ const News = () => {
                 NEWS
             </div>
             <div className='grid grid-cols-4 gap-x-2 gap-y-2' >
-                <div className='col-span-2 w-full h-card bg-slate-500 rounded-xl shadow-lg' style={{ backgroundImage: `url(${hightLightNews.urlToImage})` }} key={hightLightNews.title}>
+                <div className='col-span-2 w-full h-card bg-slate-500 rounded-xl shadow-lg' style={{ backgroundImage: `url(${hightLightNews.urlToImage})`, backgroundSize: 'cover' }} key={hightLightNews.title}>
                     <a href={hightLightNews.url} className='w-full flex flex-col justify-end h-full' rel="noreferrer" target='_blank'>
                         <div className='flex flex-col pl-4 pb-6'>
                             <div>{hightLightNews.source.name}</div>

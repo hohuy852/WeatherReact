@@ -2,6 +2,7 @@ import axios from "axios";
 const {
   createSlice,
   createAsyncThunk,
+  createSelector,
 } = require("@reduxjs/toolkit");
 
 export const getWeather = createAsyncThunk(
@@ -9,11 +10,11 @@ export const getWeather = createAsyncThunk(
   async (location) => {
     const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${location.q}&appid=98ea538d118721f5330fce1c4de1a6fb&units=metric`
-    )
+    );
     //console.log(response.data)
     return response.data;
   }
-);  
+);
 export const getForecast = createAsyncThunk(
   "weather/weatherForecastFetched",
   async (location) => {
@@ -86,6 +87,28 @@ const weatherReducer = weatherSlice.reducer;
 //selector
 export const weatherSelector = (state) => state.weatherReducer.weather;
 export const selectForecastDate = (state) => state.weatherReducer.forecast;
+const selectLoading = (state) => state.weatherReducer.foreLoading;
+
+export const tempSelector = createSelector(
+  [selectForecastDate, selectLoading],
+  (dayArr, loading) => {
+    let tempOfDay = {
+      morn: [],
+      day: [],
+      eve: [],
+      night: [],
+    };  
+    if (loading === false) {
+      dayArr.forEach((day) => {
+        tempOfDay.morn.push(day.temp.morn);
+        tempOfDay.day.push(day.temp.day);
+        tempOfDay.eve.push(day.temp.eve);
+        return tempOfDay;
+      });
+      return tempOfDay;
+    }
+  }
+);
 
 export const { locationAdded } = weatherSlice.actions;
 //export
