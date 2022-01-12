@@ -93,7 +93,7 @@ const Weather = () => {
             <div className='font-medium uppercase'>
                 Forecast for the next 7 days
             </div>
-            <Forecast />
+            <Forecast locationData = {locationData} />
             <div>
 
             </div>

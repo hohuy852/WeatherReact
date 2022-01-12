@@ -97,12 +97,15 @@ export const tempSelector = createSelector(
       day: [],
       eve: [],
       night: [],
-    };  
+      date: [],
+    };
     if (loading === false) {
       dayArr.forEach((day) => {
         tempOfDay.morn.push(day.temp.morn);
         tempOfDay.day.push(day.temp.day);
         tempOfDay.eve.push(day.temp.eve);
+        tempOfDay.night.push(day.temp.night);
+        tempOfDay.date.push(day.dt);
         return tempOfDay;
       });
       return tempOfDay;
