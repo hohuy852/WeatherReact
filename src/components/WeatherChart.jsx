@@ -155,7 +155,7 @@ const WeatherChart = (location) => {
             size: 1
         },
         xaxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+           // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
             title: {
                 text: ''
             },
