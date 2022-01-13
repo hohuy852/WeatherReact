@@ -7,6 +7,9 @@ module.exports = {
       center: true,
     },
     extend: {
+      backgroundImage:{
+        'weather': "url('/src/assets/bg/weather.jpg')"
+      },
       width: {
         card: '612px'
       },

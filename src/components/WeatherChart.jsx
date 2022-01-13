@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Chart from "react-apexcharts";
-import { tempSelector} from '../app/reducer/weatherSlice';
+import { tempSelector } from '../app/reducer/weatherSlice';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
@@ -28,15 +28,15 @@ const WeatherChart = (location) => {
         },
     ])
     useEffect(() => {
-        if(isLoading === false){
+        if (isLoading === false) {
             setSeries([
-                {
-                    name: "Day",
-                    data: tempArr.day
-                },
                 {
                     name: "Morning",
                     data: tempArr.morn
+                },
+                {
+                    name: "Day",
+                    data: tempArr.day
                 },
                 {
                     name: "Evening",
@@ -82,9 +82,15 @@ const WeatherChart = (location) => {
                 opacity: 0.2
             },
         },
-        colors: ['#53618c', '#2f3c66', '#1e2a52'],
+        colors: ['#fff', '#fff', '#fff', '#fff'],
         dataLabels: {
             enabled: true,
+            style: {
+                colors: ['#000']
+            },
+            formatter: function (val){
+                return val.toFixed(1) + '9\xB0C'
+            }
         },
         stroke: {
             curve: 'smooth',
@@ -132,8 +138,8 @@ const WeatherChart = (location) => {
             },
         },
         title: {
-            text: 'Temperature',
-            align: 'center'
+           // text: 'Temperature',
+            align: 'center',
         },
         grid: {
             show: false,
@@ -152,12 +158,22 @@ const WeatherChart = (location) => {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
             title: {
                 text: ''
-            }
+            },
+            labels: {
+                style: {
+                    colors: ['#fff']
+                },
+                show: false
+            },
+
         },
         yaxis: {
             tickPlacement: 'on',
-            label: {
-                show: false
+            labels: {
+                style: {
+                    colors: ['#fff']
+                },
+                show: true
             },
             categories: [],
             title: {
@@ -175,7 +191,7 @@ const WeatherChart = (location) => {
     })
 
     return (
-        <div className='w-full bg-red-100'>
+        <div className='w-full rounded-xl bg-slate-800'>
             <Chart
                 options={options}
                 series={series}

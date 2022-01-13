@@ -22,7 +22,7 @@ const Weather = () => {
     return (
         <div className='flex flex-col gap-y-3'>
             <div className='font-medium'>WEATHER</div>
-            <div className='grid grid-cols-4'>
+            <div className='grid grid-cols-4 gap-x-2'>
                 <div className='col-span-2 pl-4 pb-4 rounded-xl bg-teal-900 w-full text-white flex flex-col gap-y-3'>
                     <div className='uppercase font-semibold pt-4'>
                         Current Weather
@@ -88,6 +88,9 @@ const Weather = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className='col-span-1'>
+                <iframe width="450" height="350" className=' rounded-xl ' src="https://embed.windy.com/embed2.html?lat=22.291&lon=114.150&detailLat=22.291&detailLon=114.150&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
                 </div>
             </div>
             <div className='font-medium uppercase'>

@@ -24,7 +24,7 @@ export class ErrorBoundary extends React.Component {
 
 function App() {
   return (
-    <div className="App bg-gradient-to-b from-blue-400 to-blue-600">
+    <div className="App bg-weather bg-contain">
       <Home />
     </div>
   );
